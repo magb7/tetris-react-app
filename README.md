@@ -6,6 +6,8 @@ The game is based on this [tutorial](https://www.youtube.com/watch?v=CUt3Mf9MYhc
 
 ## Time spent
 
+3 hours for now...
+
 ## Production (on Netlify)
 
 Coming soon ;)
