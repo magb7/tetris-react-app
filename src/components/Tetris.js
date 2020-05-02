@@ -21,6 +21,8 @@ const Tetris = () => {
   const [player, updatePlayerPos, resetPlayer] = usePlayer();
   const [stage, setStage] = useStage(player, resetPlayer);
 
+  console.log("re-render");
+
   const movePlayer = (dir) => {
     if (!checkCollision(player, stage, { x: dir, y: 0 })) {
       updatePlayerPos({ x: dir, y: 0 });
@@ -51,24 +53,23 @@ const Tetris = () => {
     drop();
   };
 
-  const move = ({ code }) => {
+  const move = ({ keyCode }) => {
     if (!gameOver) {
-      if (code === "ArrowLeft") {
+      if (keyCode === 37) {
+        console.log("ArrowLeft");
         movePlayer(-1);
-      } else if (code === "ArrowRight") {
+      } else if (keyCode === 39) {
+        console.log("ArrowRight");
         movePlayer(1);
-      } else if (code === "ArrowDown") {
+      } else if (keyCode === 40) {
+        console.log("ArrowDown");
         dropPlayer();
       }
     }
   };
 
   return (
-    <StyledTetrisWrapper
-      role="button"
-      tabIndex="0"
-      onKeyPress={(e) => move(e.code)}
-    >
+    <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={(e) => move(e)}>
       <StyledTetris>
         <Stage stage={stage} />
         <aside>
@@ -81,7 +82,7 @@ const Tetris = () => {
               <Display text="Level" />
             </div>
           )}
-          <StartButton callback={startGame()} />
+          <StartButton callback={startGame} />
         </aside>
       </StyledTetris>
     </StyledTetrisWrapper>
