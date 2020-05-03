@@ -6,7 +6,7 @@ The game is based on this [tutorial](https://www.youtube.com/watch?v=CUt3Mf9MYhc
 
 ## Time spent
 
-5 hours for now...
+6 hours and a half for now...
 
 ## Production (on Netlify)
 
